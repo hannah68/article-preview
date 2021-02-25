@@ -1,0 +1,247 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+html {
+	box-sizing: border-box;
+	font-size: 62.5%; //10px=1rem
+}
+
+body {
+	font-family: 'Manrope', sans-serif;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	max-width: 144rem;
+	margin: 0 auto;
+	background-color: hsl(210, 46%, 95%);
+	position: relative;
+
+	@media only screen and (max-width:375px){
+		padding: 0 1rem;
+		margin-top: 5rem;
+	}
+}
+
+.container {
+	width: 70rem;
+	height: 30rem;
+	display: flex;
+	background-color:#fff;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+	border-radius: 1rem;
+	// overflow: hidden; //used this for rounding edge of drawers img
+	@media only screen and (max-width:375px){
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height:46rem;
+	}
+}
+
+//drawer img=======================================
+.img-container{
+	width: 25rem;
+	height: 100%;
+
+	@media only screen and (max-width:375px){
+		width: 100%;
+		height: 20rem;
+		display: block;
+		
+	}
+	
+	.img {
+		width: 100%;
+		height: 100%;
+		border-bottom-left-radius: 1rem;
+		border-top-left-radius: 1rem;
+		
+		@media only screen and (max-width:375px){
+			border-top-left-radius: 1rem;
+			border-top-right-radius: 1rem;
+			border-bottom-left-radius: 0;
+			// object-fit: cover;
+		}
+	}
+}
+//article preview================================
+.article-preview {
+	width: 45rem;
+	height: 100%;
+	padding: 4rem;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+
+	@media only screen and (max-width:375px){
+		height: 40rem;
+		width: 100%;
+		padding: 3rem;
+	}
+
+	.title {
+		font-size: 2rem;
+		font-weight: 700;
+		padding: 0;
+		margin-bottom: 2.5rem;
+		color: hsl(217, 19%, 35%);
+
+		@media only screen and (max-width:375px){
+			font-size: 1.5rem;
+		}
+		
+	}
+
+	.text {
+		font-size: 1.3rem;
+		font-weight: 500;
+		padding: 0;
+		margin-bottom: 2.5rem;
+		color:hsl(212, 23%, 69%);
+		
+	}
+
+	.author-container {
+		display: flex;
+		justify-content: space-between;
+
+		.author{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			.author-photo {
+				height: 4rem;
+				width: 4rem;
+				border-radius: 50%;
+			}
+
+			.author-name {
+				font-size: 1.3rem;
+				font-weight: 700;
+				line-height: 1.6;
+				color: hsl(217, 19%, 35%);
+				margin-left: 1.3rem;
+	
+				span {
+					display: block;
+					font-size: 1.3rem;
+					font-weight: 500;
+					color:hsl(212, 23%, 69%);
+				}
+			}
+		}
+		
+
+		.share {
+			background-color: hsl(210, 46%, 95%);
+			border-radius: 50%;
+			width: 3.5rem;
+			height: 3.5rem;
+			border: none;
+			cursor: pointer;
+			position: relative;
+			transition: background-color 200ms ease-in-out;
+
+			&:hover{
+				background-color: hsl(214, 17%, 51%);
+				path{
+					fill: white;
+				}
+			}
+
+			&:active, &:focus, &:visited{
+				border: none;
+				outline: none;
+			}
+		}
+	}
+}
+
+.icon-container{
+	background-color: hsl(217, 19%, 35%);
+	width: 23rem;
+	height: 5rem;
+	padding: 1rem;
+	border-radius: 5px;
+	position: absolute;
+	bottom: 9rem;
+	right: -5.5rem;
+	visibility: hidden;
+	
+	@media only screen and (max-width:375px){
+		bottom: 2.2rem;
+		right: 0;
+		width: 100%;
+		height: 6.3rem;
+		border-top-right-radius: 0;
+		border-top-left-radius: 0;
+	}
+
+	.icons{
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		padding-top: 5px;
+		position: relative;
+
+		@media only screen and (max-width:375px){
+			justify-content: flex-start;
+			align-items: flex-end;
+			padding-left:1rem;
+			padding-top: 8px;
+		}
+
+		&::after{
+			content: "";
+			width: 0;
+			height: 0;
+			position: absolute;
+			bottom: -2.2rem;
+			left: 50%;
+			transform: translate(-50%);
+			border-left: 1.5rem solid transparent;
+			border-right: 1.5rem solid transparent;
+			border-top: 1.5rem solid #48556a;
+
+			@media only screen and (max-width:375px){
+				display: none;
+			}
+		}
+
+		span{
+			color: hsl(210, 46%, 95%);
+			letter-spacing: 5px;
+			font-size: 1rem;
+			@media only screen and (max-width:375px){
+				align-self: center;
+				
+			}
+		}
+
+		a{
+			font-size: 1rem;
+
+			@media only screen and (max-width:375px){
+				margin-left: 1rem;
+
+			}
+		}
+	}
+}
+
+// js class
+.icon-container.show{
+	visibility: visible;
+}
+
